@@ -11,7 +11,11 @@ public class App {
     private JButton btnHomensNaoNegros;
     private JRadioButton rdnTotal;
     private JRadioButton rdnMedia;
-    private JButton homicidiosMulheresNegrasButton;
+    private JButton btnHomicidiosMulheresNegrasButton;
+    private JButton btnMulheresPais;
+    private JButton btnHomicidiosNaoNegros;
+    private JButton btnMulheresNaoNegras;
+    private JButton btnHomicidiosPessoasNegras;
 
     private static final String HOMENS_NAO_NEGROS_PAIS = "homicidiosHomensNaoNegrosPais.xlsx";
     private static final String HOMENS_NEGROS_PAIS = "homicidiosHomensNegrosPais.xlsx";
@@ -28,13 +32,14 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(FILE_PATH2);
+                    chart3.abrirExcel(HOMENS_NEGROS_PAIS);
 
                     if(rdnMedia.isSelected()){
-                        chart3.Chart3(FILE_PATH2, "media");
+                        chart3.Chart3(HOMENS_NEGROS_PAIS
+                                , "media", "Homens Negros");
                     }
                     if(rdnTotal.isSelected()){
-                        chart3.Chart3(FILE_PATH2, "total");
+                        chart3.Chart3(HOMENS_NEGROS_PAIS, "total", "Homens Negros");
                     }
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -47,13 +52,109 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(FILE_PATH);
+                    chart3.abrirExcel(HOMENS_NAO_NEGROS_PAIS);
 
                     if(rdnMedia.isSelected()){
-                        chart3.Chart3(FILE_PATH, "media");
+                        chart3.Chart3(HOMENS_NAO_NEGROS_PAIS, "media", "Homens Não Negros");
                     }
                     if(rdnTotal.isSelected()){
-                        chart3.Chart3(FILE_PATH, "total");
+                        chart3.Chart3(HOMENS_NAO_NEGROS_PAIS, "total", "Homens Não Negros");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        btnMulheresNaoNegras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Chart3 chart3 = new Chart3();
+                try {
+                    chart3.abrirExcel(MULHERES_NAO_NEGRAS_PAIS);
+
+                    if(rdnMedia.isSelected()){
+                        chart3.Chart3(MULHERES_NAO_NEGRAS_PAIS, "media", "Mulheres Não Negras");
+                    }
+                    if(rdnTotal.isSelected()){
+                        chart3.Chart3(MULHERES_NAO_NEGRAS_PAIS, "total", "Mulheres Não Negras");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        btnHomicidiosMulheresNegrasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Chart3 chart3 = new Chart3();
+                try {
+                    chart3.abrirExcel(MULHERES_NEGRAS_PAIS);
+
+                    if(rdnMedia.isSelected()){
+                        chart3.Chart3(MULHERES_NEGRAS_PAIS, "media", "Mulheres Negras");
+                    }
+                    if(rdnTotal.isSelected()){
+                        chart3.Chart3(MULHERES_NEGRAS_PAIS, "total", "Mulheres Negras");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        btnMulheresPais.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Chart3 chart3 = new Chart3();
+                try {
+                    chart3.abrirExcel(MULHERES_PAIS);
+
+                    if(rdnMedia.isSelected()){
+                        chart3.Chart3(MULHERES_PAIS, "media", "Homicidios Mulheres");
+                    }
+                    if(rdnTotal.isSelected()){
+                        chart3.Chart3(MULHERES_PAIS, "total", "Homicidios Mulheres");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        btnHomicidiosNaoNegros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Chart3 chart3 = new Chart3();
+                try {
+                    chart3.abrirExcel(HOMICIDIOS_PESSOAS_NAO_NEGRAS);
+
+                    if(rdnMedia.isSelected()){
+                        chart3.Chart3(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "media", "??????");
+                    }
+                    if(rdnTotal.isSelected()){
+                        chart3.Chart3(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "total", "?????");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        btnHomicidiosPessoasNegras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Chart3 chart3 = new Chart3();
+                try {
+                    chart3.abrirExcel(HOMICIDIOS_PESSOAS_NEGRAS);
+
+                    if(rdnMedia.isSelected()){
+                        chart3.Chart3(HOMICIDIOS_PESSOAS_NEGRAS, "media", "??????");
+                    }
+                    if(rdnTotal.isSelected()){
+                        chart3.Chart3(HOMICIDIOS_PESSOAS_NEGRAS, "total", "??????");
                     }
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -76,6 +177,7 @@ public class App {
 
             }
         });
+
     }
 
     public static void main(String[] args) {

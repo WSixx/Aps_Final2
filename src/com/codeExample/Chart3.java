@@ -38,9 +38,9 @@ public class Chart3 extends JFrame {
     List<Homicidios> listaHomicidios = new ArrayList<Homicidios>();
 
 
-    public void Chart3(String filePath, String tipo) {
+    public void Chart3(String filePath, String tipo, String tituloGrafico) {
         LineChart(filePath);
-        initUI(tipo);
+        initUI(tipo, tituloGrafico);
     }
 
     public void abrirExcel(String fileName) throws IOException {
@@ -132,11 +132,11 @@ public class Chart3 extends JFrame {
     }
 
 
-    private void initUI(String tipo) {
+    private void initUI(String tipo, String tituloGrafico) {
 
         CategoryDataset dataset = createDataset(tipo);
 
-        JFreeChart chart = createChart(dataset);
+        JFreeChart chart = createChart(dataset, tituloGrafico);
 
         CategoryItemRenderer renderer = ((CategoryPlot)chart.getPlot()).getRenderer();
 
@@ -179,10 +179,10 @@ public class Chart3 extends JFrame {
         return dataset;
     }
 
-    private JFreeChart createChart(CategoryDataset dataset) {
+    private JFreeChart createChart(CategoryDataset dataset, String tituloGrafico) {
 
         JFreeChart barChart = ChartFactory.createBarChart(
-                "Homicidios de Homens",
+                tituloGrafico,
                 "",
                 "Mortes",
                 dataset,

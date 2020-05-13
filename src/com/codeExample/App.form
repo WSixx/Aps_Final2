@@ -19,7 +19,7 @@
           <text value="Homicidios Homens Nao Negros"/>
         </properties>
       </component>
-      <component id="e046" class="javax.swing.JButton">
+      <component id="e046" class="javax.swing.JButton" binding="btnMulheresNaoNegras">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="100"/>
@@ -30,7 +30,7 @@
           <text value="Homicidios Mulheres Não Negras"/>
         </properties>
       </component>
-      <component id="a6b38" class="javax.swing.JButton" binding="homicidiosMulheresNegrasButton" default-binding="true">
+      <component id="a6b38" class="javax.swing.JButton" binding="btnHomicidiosMulheresNegrasButton">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="100"/>
@@ -52,7 +52,7 @@
           <text value="Homicidios Homens Negros"/>
         </properties>
       </component>
-      <component id="cd555" class="javax.swing.JButton">
+      <component id="cd555" class="javax.swing.JButton" binding="btnHomicidiosPessoasNegras">
         <constraints>
           <grid row="2" column="0" row-span="3" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="100"/>
@@ -63,7 +63,7 @@
           <text value="Homicidios Pessoas Negras"/>
         </properties>
       </component>
-      <component id="8e667" class="javax.swing.JButton">
+      <component id="8e667" class="javax.swing.JButton" binding="btnMulheresPais">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="100"/>
@@ -74,7 +74,7 @@
           <text value="Homicidios Mulheres País"/>
         </properties>
       </component>
-      <component id="81276" class="javax.swing.JButton">
+      <component id="81276" class="javax.swing.JButton" binding="btnHomicidiosNaoNegros">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="100" height="100"/>
