@@ -7,18 +7,23 @@ import java.io.IOException;
 
 public class App {
     private JPanel panelMain;
-    private JButton btn2;
-    private JButton chart3Button;
+    private JButton btnHomensNegros;
+    private JButton btnHomensNaoNegros;
     private JRadioButton rdnTotal;
     private JRadioButton rdnMedia;
+    private JButton homicidiosMulheresNegrasButton;
 
-    private static final String FILE_PATH = "homicidiosHomensNaoNegrosPaisQTD.xlsx";
-    private static final String FILE_PATH2 = "homicidiosHomensNegrosPaisQTD.xlsx";
-
+    private static final String HOMENS_NAO_NEGROS_PAIS = "homicidiosHomensNaoNegrosPais.xlsx";
+    private static final String HOMENS_NEGROS_PAIS = "homicidiosHomensNegrosPais.xlsx";
+    private static final String MULHERES_NEGRAS_PAIS = "homicidiosMulheresNegrasPais.xlsx";
+    private static final String MULHERES_NAO_NEGRAS_PAIS = "homicidiosMulheresNaoNegrasPais.xlsx";
+    private static final String MULHERES_PAIS = "homicidiosMulheresPais.xlsx";
+    private static final String HOMICIDIOS_PESSOAS_NEGRAS = "homicidiosNegrosPais.xlsx";
+    private static final String HOMICIDIOS_PESSOAS_NAO_NEGRAS = "homicidiosNaoNegrosPais.xlsx";
 
 
     public App() {
-        btn2.addActionListener(new ActionListener() {
+        btnHomensNegros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Chart3 chart3 = new Chart3();
@@ -37,7 +42,7 @@ public class App {
             }
         });
 
-        chart3Button.addActionListener(new ActionListener() {
+        btnHomensNaoNegros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Chart3 chart3 = new Chart3();
@@ -74,7 +79,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("App");
+        JFrame frame = new JFrame("Tabelas");
         frame.setContentPane(new App().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
