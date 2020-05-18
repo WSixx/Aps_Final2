@@ -80,6 +80,10 @@ public class Grafico extends Homicidios {
         chart.setBackgroundPaint(Color.white);
         chart.getTitle().setPaint(Color.BLACK);
 
+        LegendTitle legend = chart.getLegend();
+        Font labelFont = new Font("Arial", Font.BOLD, 12);
+        legend.setItemFont(labelFont);
+
         CategoryPlot p = chart.getCategoryPlot();
         CategoryAxis axis = p.getDomainAxis();
         axis.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
