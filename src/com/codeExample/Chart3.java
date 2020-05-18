@@ -19,12 +19,13 @@ public class Chart3 extends JFrame {
     public final ArrayList<String> anos = new ArrayList();
     public final ArrayList<String> valor = new ArrayList();
     public double mediaA, mediana, desvioPadrao, varianciaPopulacional, moda, varianciaAmostral;
-    Grafico grafico = new Grafico();
 
+    Grafico grafico = new Grafico();
 
     List<Homicidios> listaHomicidios = new ArrayList<Homicidios>();
 
-    public void Chart3(String tipo, String tituloGrafico) {
+    public void Chart3(String filePath, String tipo, String tituloGrafico) throws IOException {
+        abrirExcel(filePath);
         grafico.initUI(tipo, tituloGrafico, this);
 
     }
@@ -40,6 +41,15 @@ public class Chart3 extends JFrame {
             XSSFSheet sheetHomicidios = workbook.getSheetAt(0);
 
             Iterator<Row> rowIterator = sheetHomicidios.iterator();
+
+            mediaA = 0;
+            mediana = 0;
+            moda = 0;
+            desvioPadrao = 0;
+            varianciaPopulacional = 0;
+            varianciaAmostral = 0;
+            anos.clear();
+            valor.clear();
 
             while (rowIterator.hasNext()) {
                 Row row = rowIterator.next();
@@ -88,10 +98,10 @@ public class Chart3 extends JFrame {
             System.out.println("Nenhum dado encontrado!");
         } else {
             for (Homicidios homicidios : listaHomicidios) {
-                System.out.println("Ano: " + homicidios.getAno());
+
                 anos.add(String.valueOf(homicidios.getAno()));
-                System.out.println("Valor: " + homicidios.getValor());
                 valor.add(String.valueOf(homicidios.getValor()));
+
                 if (homicidios.getMediaAritmetica() != 0) {
                     mediaA = homicidios.getMediaAritmetica();
                 }
@@ -112,10 +122,5 @@ public class Chart3 extends JFrame {
                 }
             }
         }
-        System.out.println("Número total de anos: " + listaHomicidios.size());
-        System.out.println(mediaA);
-
     }
-
-
 }

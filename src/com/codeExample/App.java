@@ -34,23 +34,14 @@ public class App {
 
 
 
-
     public App() {
 
         btnHomensNegros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
-                try {
-                    chart3.abrirExcel(HOMENS_NEGROS_PAIS);
 
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(HOMENS_NEGROS_PAIS
-                                , "media", "Homens Negros");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(HOMENS_NEGROS_PAIS, "total", "Homens Negros");
-                    }
+                try {
+                    escolhaTipo(HOMENS_NEGROS_PAIS, "Homens Negros", "Homens Negros");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -60,16 +51,8 @@ public class App {
         btnHomensNaoNegros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(HOMENS_NAO_NEGROS_PAIS);
-
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(HOMENS_NAO_NEGROS_PAIS, "media", "Homens Não Negros");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(HOMENS_NAO_NEGROS_PAIS, "total", "Homens Não Negros");
-                    }
+                    escolhaTipo(HOMENS_NAO_NEGROS_PAIS, "Homens Não Negros", "Homens Não Negros");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -79,17 +62,8 @@ public class App {
         btnMulheresNaoNegras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(MULHERES_NAO_NEGRAS_PAIS);
-
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(MULHERES_NAO_NEGRAS_PAIS, "media", "Mulheres Não Negras");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(MULHERES_NAO_NEGRAS_PAIS, "total", "Mulheres Não Negras");
-                    }
+                    escolhaTipo(MULHERES_NAO_NEGRAS_PAIS, "Mulheres Não Negras", "Mulheres Não Negras");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -99,16 +73,8 @@ public class App {
         btnHomicidiosMulheresNegrasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(MULHERES_NEGRAS_PAIS);
-
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(MULHERES_NEGRAS_PAIS, "media", "Mulheres Negras");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(MULHERES_NEGRAS_PAIS, "total", "Mulheres Negras");
-                    }
+                    escolhaTipo(MULHERES_NEGRAS_PAIS, "Mulheres Negras", "Mulheres Negras");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -118,16 +84,8 @@ public class App {
         btnMulheresPais.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(MULHERES_PAIS);
-
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(MULHERES_PAIS, "media", "Homicidios Mulheres");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(MULHERES_PAIS, "total", "Homicidios Mulheres");
-                    }
+                    escolhaTipo(MULHERES_PAIS, "Homicidios Mulheres", "Homicidios Mulheres");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -137,16 +95,8 @@ public class App {
         btnHomicidiosNaoNegros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(HOMICIDIOS_PESSOAS_NAO_NEGRAS);
-
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "media", "??????");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "total", "?????");
-                    }
+                    escolhaTipo(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "??????", "?????");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -156,16 +106,9 @@ public class App {
         btnHomicidiosPessoasNegras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(HOMICIDIOS_PESSOAS_NEGRAS);
+                    escolhaTipo(HOMICIDIOS_PESSOAS_NEGRAS, "??????", "??????");
 
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(HOMICIDIOS_PESSOAS_NEGRAS, "media", "??????");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(HOMICIDIOS_PESSOAS_NEGRAS, "total", "??????");
-                    }
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -175,16 +118,8 @@ public class App {
         btnHomicidiosHomens.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Chart3 chart3 = new Chart3();
                 try {
-                    chart3.abrirExcel(HOMICIDIOS_HOMENS);
-
-                    if(rdnMedia.isSelected()){
-                        chart3.Chart3(HOMICIDIOS_HOMENS, "media", "Homicidios Homens");
-                    }
-                    if(rdnTotal.isSelected()){
-                        chart3.Chart3(HOMICIDIOS_HOMENS, "total", "Homicidios Homens");
-                    }
+                    escolhaTipo(HOMICIDIOS_HOMENS, "Homicidios Homens", "Homicidios Homens");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -217,6 +152,17 @@ public class App {
         });
     }
 
+    private void escolhaTipo(String arquivo, String tipo, String tituloGrafico) throws IOException {
+        Chart3 chart3 = new Chart3();
+        if (rdnMedia.isSelected()) {
+            chart3.Chart3(arquivo
+                    , "media", tituloGrafico);
+        }
+        if (rdnTotal.isSelected()) {
+            chart3.Chart3(arquivo, "total", tituloGrafico);
+        }
+    }
+
     public static void main(String[] args) {
         frame.setContentPane(new App().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -230,5 +176,4 @@ public class App {
         //frame.pack();
         frame.setVisible(true);
     }
-
 }
