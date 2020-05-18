@@ -5,18 +5,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
-import org.jfree.chart.block.LineBorder;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.chart.renderer.xy.ClusteredXYBarRenderer;
-import org.jfree.chart.title.LegendTitle;
-import org.jfree.chart.ui.RectangleEdge;
-import org.jfree.chart.ui.RectangleInsets;
 import org.jfree.chart.ui.TextAnchor;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -80,9 +74,7 @@ public class Grafico extends Homicidios {
         chart.setBackgroundPaint(Color.white);
         chart.getTitle().setPaint(Color.BLACK);
 
-        LegendTitle legend = chart.getLegend();
-        Font labelFont = new Font("Arial", Font.BOLD, 12);
-        legend.setItemFont(labelFont);
+
 
         CategoryPlot p = chart.getCategoryPlot();
         CategoryAxis axis = p.getDomainAxis();
@@ -100,9 +92,6 @@ public class Grafico extends Homicidios {
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
-
-
 
     }
 }

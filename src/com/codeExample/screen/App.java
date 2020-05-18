@@ -170,10 +170,8 @@ public class App {
         ImageIcon img = new ImageIcon("src/icon/line-stats.png");
         frame.setIconImage(img.getImage());
 
-        //frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);
 
-        //frame.pack();
         frame.setVisible(true);
     }
 }
