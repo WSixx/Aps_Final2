@@ -1,10 +1,10 @@
-package com.codeExample;
+package com.codeExample.screen;
+
+import com.codeExample.ExcelOpen;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 
 public class App {
@@ -32,8 +32,6 @@ public class App {
 
     public static final JFrame frame = new JFrame();
 
-
-
     public App() {
 
         btnHomensNegros.addActionListener(new ActionListener() {
@@ -41,7 +39,7 @@ public class App {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    escolhaTipo(HOMENS_NEGROS_PAIS, "Homens Negros", "Homens Negros");
+                    escolhaTipo(HOMENS_NEGROS_PAIS, "Homens Negros");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -52,7 +50,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(HOMENS_NAO_NEGROS_PAIS, "Homens Não Negros", "Homens Não Negros");
+                    escolhaTipo(HOMENS_NAO_NEGROS_PAIS, "Homens Não Negros");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -63,7 +61,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(MULHERES_NAO_NEGRAS_PAIS, "Mulheres Não Negras", "Mulheres Não Negras");
+                    escolhaTipo(MULHERES_NAO_NEGRAS_PAIS, "Mulheres Não Negras");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -74,7 +72,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(MULHERES_NEGRAS_PAIS, "Mulheres Negras", "Mulheres Negras");
+                    escolhaTipo(MULHERES_NEGRAS_PAIS, "Mulheres Negras");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -85,7 +83,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(MULHERES_PAIS, "Homicidios Mulheres", "Homicidios Mulheres");
+                    escolhaTipo(MULHERES_PAIS, "Homicidios Mulheres");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -96,7 +94,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "??????", "?????");
+                    escolhaTipo(HOMICIDIOS_PESSOAS_NAO_NEGRAS, "Homicidio Pessoas Não Negras");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -107,7 +105,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(HOMICIDIOS_PESSOAS_NEGRAS, "??????", "??????");
+                    escolhaTipo(HOMICIDIOS_PESSOAS_NEGRAS, "Homicidio Pessoas Negras");
 
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -119,7 +117,7 @@ public class App {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    escolhaTipo(HOMICIDIOS_HOMENS, "Homicidios Homens", "Homicidios Homens");
+                    escolhaTipo(HOMICIDIOS_HOMENS, "Homicidios de Homens");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -147,19 +145,18 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 btnSair.setBounds(12, 12, 30, 25);
-
             }
         });
     }
 
-    private void escolhaTipo(String arquivo, String tipo, String tituloGrafico) throws IOException {
-        Chart3 chart3 = new Chart3();
+    private void escolhaTipo(String arquivo, String tituloGrafico) throws IOException {
+        ExcelOpen excelOpen = new ExcelOpen();
         if (rdnMedia.isSelected()) {
-            chart3.Chart3(arquivo
+            excelOpen.Chart3(arquivo
                     , "media", tituloGrafico);
         }
         if (rdnTotal.isSelected()) {
-            chart3.Chart3(arquivo, "total", tituloGrafico);
+            excelOpen.Chart3(arquivo, "total", tituloGrafico);
         }
     }
 
@@ -167,8 +164,11 @@ public class App {
         frame.setContentPane(new App().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setSize(600, 600);
+        frame.setSize(520, 560);
         frame.setResizable(false);
+
+        ImageIcon img = new ImageIcon("src/icon/line-stats.png");
+        frame.setIconImage(img.getImage());
 
         //frame.setUndecorated(true);
         frame.setLocationRelativeTo(null);

@@ -3,12 +3,20 @@ package com.codeExample;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.block.LineBorder;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.chart.renderer.xy.ClusteredXYBarRenderer;
+import org.jfree.chart.title.LegendTitle;
+import org.jfree.chart.ui.RectangleEdge;
+import org.jfree.chart.ui.RectangleInsets;
 import org.jfree.chart.ui.TextAnchor;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -16,12 +24,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Grafico extends Homicidios {
-
-    private String catLabel;
-
 
     public JFreeChart createChart(CategoryDataset dataset, String tituloGrafico) {
 
@@ -56,11 +60,11 @@ public class Grafico extends Homicidios {
         return dataset;
     }
 
-    void initUI(String tipo, String tituloGrafico, Chart3 chart3) {
+    void initUI(String tipo, String tituloGrafico, ExcelOpen excelOpen) {
 
         Grafico grafico = new Grafico();
 
-        CategoryDataset dataset = grafico.createDataset(tipo, chart3.anos, chart3.valor, chart3.mediaA, chart3.mediana, chart3.moda, chart3.desvioPadrao, chart3.varianciaPopulacional, chart3.varianciaAmostral);
+        CategoryDataset dataset = grafico.createDataset(tipo, excelOpen.anos, excelOpen.valor, excelOpen.mediaA, excelOpen.mediana, excelOpen.moda, excelOpen.desvioPadrao, excelOpen.varianciaPopulacional, excelOpen.varianciaAmostral);
 
         JFreeChart chart = grafico.createChart(dataset, tituloGrafico);
 
@@ -71,29 +75,30 @@ public class Grafico extends Homicidios {
         ItemLabelPosition position = new ItemLabelPosition(ItemLabelAnchor.OUTSIDE1,
                 TextAnchor.TOP_CENTER);
         renderer.setDefaultPositiveItemLabelPosition(position);
-
-
-
         ChartPanel chartPanel = new ChartPanel(chart);
-        //chartPanel.setBorder(BorderFactory.createTitledBorder("Teste"));
-        //chartPanel.setBackground(Color.blue);
+
+        chart.setBackgroundPaint(Color.white);
+        chart.getTitle().setPaint(Color.BLACK);
+
+        CategoryPlot p = chart.getCategoryPlot();
+        CategoryAxis axis = p.getDomainAxis();
+        axis.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
+        p.setRangeGridlinePaint(Color.red);
 
         JFrame jFrame = new JFrame();
         jFrame.setLayout(new BorderLayout());
         jFrame.setBackground(Color.blue);
         jFrame.add(chartPanel, BorderLayout.CENTER);
 
-        //add(jFrame);
+        ImageIcon img = new ImageIcon("src/icon/line-stats.png");
+        jFrame.setIconImage(img.getImage());
 
         jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
-        //pack();
-       /* setTitle("Bar chart");
-        setVisible(true);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);*/
+
+
 
     }
 }

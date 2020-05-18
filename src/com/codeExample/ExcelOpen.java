@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Chart3 extends JFrame {
+public class ExcelOpen extends JFrame {
 
     public final ArrayList<String> anos = new ArrayList();
     public final ArrayList<String> valor = new ArrayList();
