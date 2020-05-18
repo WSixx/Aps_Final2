@@ -5,23 +5,23 @@ public class Homicidios {
     private int ano ;
     private int valor;
     private double mediaAritmetica;
-    private double desvioMedio;
+    private double mediana;
     private double desvioPadrao;
     private double varianciaPopulacional;
-    private double coeficienteVariaçao;
+    private double moda;
     private double varianciaAmostral;
 
     public Homicidios(){}
 
-    public Homicidios(int ano, int valor, double mediaAritmetica, double desvioMedio, double desvioPadrao,
-                      double varianciaPopulacional, double coeficienteVariaçao, double varianciaAmostral) {
+    public Homicidios(int ano, int valor, double mediaAritmetica, double mediana, double desvioPadrao,
+                      double varianciaPopulacional, double moda, double varianciaAmostral) {
         this.ano = ano;
         this.valor = valor;
         this.mediaAritmetica = mediaAritmetica;
-        this.desvioMedio = desvioMedio;
+        this.mediana = mediana;
         this.desvioPadrao = desvioPadrao;
         this.varianciaPopulacional = varianciaPopulacional;
-        this.coeficienteVariaçao = coeficienteVariaçao;
+        this.moda = moda;
         this.varianciaAmostral = varianciaAmostral;
     }
 
@@ -49,12 +49,12 @@ public class Homicidios {
         this.mediaAritmetica = mediaAritmetica;
     }
 
-    public double getDesvioMedio() {
-        return desvioMedio;
+    public double getMediana() {
+        return mediana;
     }
 
-    public void setDesvioMedio(double desvioMedio) {
-        this.desvioMedio = desvioMedio;
+    public void setMediana(double mediana) {
+        this.mediana = mediana;
     }
 
     public double getDesvioPadrao() {
@@ -73,12 +73,12 @@ public class Homicidios {
         this.varianciaPopulacional = varianciaPopulacional;
     }
 
-    public double getCoeficienteVariaçao() {
-        return coeficienteVariaçao;
+    public double getModa() {
+        return moda;
     }
 
-    public void setCoeficienteVariaçao(double coeficienteVariaçao) {
-        this.coeficienteVariaçao = coeficienteVariaçao;
+    public void setModa(double moda) {
+        this.moda = moda;
     }
 
     public double getVarianciaAmostral() {

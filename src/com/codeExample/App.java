@@ -1,8 +1,10 @@
 package com.codeExample;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 
 public class App {
@@ -16,6 +18,8 @@ public class App {
     private JButton btnHomicidiosNaoNegros;
     private JButton btnMulheresNaoNegras;
     private JButton btnHomicidiosPessoasNegras;
+    private JButton btnHomicidiosHomens;
+    private JButton btnSair;
 
     private static final String HOMENS_NAO_NEGROS_PAIS = "homicidiosHomensNaoNegrosPais.xlsx";
     private static final String HOMENS_NEGROS_PAIS = "homicidiosHomensNegrosPais.xlsx";
@@ -24,9 +28,15 @@ public class App {
     private static final String MULHERES_PAIS = "homicidiosMulheresPais.xlsx";
     private static final String HOMICIDIOS_PESSOAS_NEGRAS = "homicidiosNegrosPais.xlsx";
     private static final String HOMICIDIOS_PESSOAS_NAO_NEGRAS = "homicidiosNaoNegrosPais.xlsx";
+    private static final String HOMICIDIOS_HOMENS = "homicidiosHomens.xlsx";
+
+    public static final JFrame frame = new JFrame();
+
+
 
 
     public App() {
+
         btnHomensNegros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -162,6 +172,25 @@ public class App {
             }
         });
 
+        btnHomicidiosHomens.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Chart3 chart3 = new Chart3();
+                try {
+                    chart3.abrirExcel(HOMICIDIOS_HOMENS);
+
+                    if(rdnMedia.isSelected()){
+                        chart3.Chart3(HOMICIDIOS_HOMENS, "media", "Homicidios Homens");
+                    }
+                    if(rdnTotal.isSelected()){
+                        chart3.Chart3(HOMICIDIOS_HOMENS, "total", "Homicidios Homens");
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
         rdnTotal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -178,14 +207,27 @@ public class App {
             }
         });
 
+        btnSair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                btnSair.setBounds(12, 12, 30, 25);
+
+            }
+        });
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Tabelas");
         frame.setContentPane(new App().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        // frame.pack();
+        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setSize(600, 600);
+        frame.setResizable(false);
+
+        //frame.setUndecorated(true);
+        frame.setLocationRelativeTo(null);
+
+        //frame.pack();
         frame.setVisible(true);
     }
 
