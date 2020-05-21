@@ -1,4 +1,4 @@
-package com.codeExample;
+package com.codeExample.classes;
 
 public class Homicidios {
 
